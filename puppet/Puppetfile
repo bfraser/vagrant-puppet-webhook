@@ -1,0 +1,34 @@
+# Dependencies
+mod 'puppetlabs/stdlib'
+mod 'puppetlabs/apt'
+mod 'puppetlabs/apache'
+mod 'puppetlabs/concat'
+mod 'puppetlabs/inifile'
+
+# GitLab
+mod 'vshn/gitlab'
+
+# Foreman
+mod 'adrien/alternatives'
+mod 'puppetlabs/postgresql'
+mod 'puppet/extlib'
+mod 'theforeman/tftp'
+mod 'theforeman/foreman'
+
+# Hiera
+mod 'hunner/hiera'
+
+# R10k
+mod 'croddy/make'
+mod 'gentoo/portage'
+mod 'puppetlabs/ruby'
+mod 'puppetlabs/pe_gem'
+mod 'puppetlabs/gcc'
+mod 'puppetlabs/vcsrepo'
+mod 'puppetlabs/git'
+mod 'zack/r10k'
+
+# Puppet
+mod 'abrader/gms'
+mod 'theforeman/puppet',
+  :git => 'https://github.com/theforeman/puppet-puppet'
