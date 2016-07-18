@@ -4,17 +4,27 @@ class profiles::puppet_server {
   include ::r10k
   include ::puppet
 
+  File {
+    owner => 'puppet',
+    group => 'puppet',
+  }
+
+  file { ['/var/lib/puppet/.ssh/','/var/lib/puppet/r10k/']:
+    ensure => directory,
+    mode   => 'u=rwx',
+  }
+
   $sshkeys = hiera_hash('sshkeys')
 
   unless empty($sshkeys) {
     create_resources('file', $sshkeys)
   }
 
-  $deploykeys = hiera_hash('deploykeys')
+  # $deploykeys = hiera_hash('deploykeys')
 
-  unless empty($deploykeys) {
-    create_resources('git_deploy_key', $deploykeys)
-  }
+  # unless empty($deploykeys) {
+  #  create_resources('git_deploy_key', $deploykeys)
+  # }
 
   sshkey {'gitlab-01.example.com':
     ensure => present,
@@ -31,8 +41,8 @@ class profiles::puppet_server {
   }
 
   class { '::r10k::webhook':
-    user    => 'root',
-    group   => 'root',
+    user    => 'puppet',
+    group   => 'puppet',
     require => Class['::r10k::webhook::config'],
   }
 }
