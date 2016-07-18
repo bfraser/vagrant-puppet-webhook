@@ -1,0 +1,45 @@
+---
+  # SSH Keys
+  sshkeys:
+    ssh_host_rsa_key:
+      path: /etc/ssh/ssh_host_rsa_key
+      ensure: present
+      owner: root
+      group: root
+      mode: u=rw
+      content: |
+        -----BEGIN RSA PRIVATE KEY-----
+        MIIEowIBAAKCAQEAy0N3p2peYL2MglIh7QbhBYvBGwNkYFgwZ6Acnie2fWp0npO0
+        mNrTWlOY3vTH2S0NGPbjXBSto5Yi5a1HzysAaLoLoaGRbdA3/NFDfjigOQmUOLDr
+        ZjweZg9spRd06iG2KimA3hUkLLBsmiEMqj0IdXpwGRelHZZ+pEMshaMbQmBFmssa
+        hguD4LozJ7uZ0YQCVhOFjzlm275I7zHLBuGkdW6yY/bmPsJ6Wn+zIAQEYSR15JZy
+        mbmPta9LYk7OSlAAvKbWhkY7BRca5PxACdAJTd0Kp9ghkdzl37fUmVohodldAKE1
+        lvkaBXsggIF+7RVfmN4XjH4uqIIwJeyhC4i7RQIDAQABAoIBAQC3dd25rbghePQp
+        bBhS57KSXuGckCM5EmAeJ9Wsqgt8h2la99Y5YMkC7hE8q5L14kPAFJaBtehDjm9Q
+        /mWiBx4HaGS3Li0lAJqIBhj1BAcZdBvkT0soq3qEg8d7+v/7kxHoXC2ERXCxJUvg
+        kZPs08mevzQOcdkGK5+Cg17b/6vK65yGsVKN7RG1gS4SDU3TfW4icI9PejkJV9qM
+        U7smqqGDHM+LikqjJhRi8oejbSyrdBEl4K65NJcYyPg5qEibd+Dw/BF6hFG1vQmu
+        P5g7etSx3UaMmgVs8Xi2EG6e0tV9ZkNoRN9pCJbgbu86CQiLLqqK6WDSGZqC1ltA
+        JEjDLBTBAoGBAPkWPPpKR5+hRnPlkoMztWuxPJBiQN13wVY4GzzKSd1/9bOohuTq
+        4By0xsZteCoZT2D5CN1OeS4Mm3lIab+8BB0gdquMcGxp/rq9v4+sybwprMiJeQWX
+        /It4ZhtQwOMJ3h0H9g5SY2KoJ6PRsSYItB1NRsURVG/MXTTDtush//bbAoGBANDn
+        p5Fz7L93qrZhjHS3p/FJX0tRE131VIbQF9bCw+uZc+27HjMgSxn0odHxZnWy86I0
+        8fgQcqb8hIw4ozHaz3iEuhgLHxW/G7Ou/K2daNYxMrb2Rqgq8QRMjQv3OqL/l0GS
+        AtqfVLH+XZksUeTjT15vyhj1Mo3rPHbjoaAjDmBfAoGAFva/5GtYsxTRQ/oUSdhI
+        j4cliEImrMRPpL1DdZVIvgz///I3jX9B7iOUd9K701XGBbCv6odDkMVEyCeu6ChT
+        UMQfbK1j5/rVqy23LW3Go3xMG6jg6W0bsVgGQdpuDgBo49BKFQPvebb7AJVieZkv
+        0cvADIcOe8ghh63LfV4DFSUCgYBZczffIkI3YegpG+/mclVpDb/OIjMmwkulRilO
+        /iqiER0AqGSwA53kyUkY+kKjFzMXO5B4ZaKSOgIPgJjwWf8IXdzJOsnep+wWrlDn
+        jkU7oelTSnTKwUheTOEARKZI8SQ1IW4zapH7fS1azw1p8qMjjr58nVE+T4Gebq3g
+        QeKABQKBgGs13lE5nfbVcIik0tE08RHWm1j8v8IoBikwcKjcXaE9JwpI6WUFsheU
+        Q3xVIpdcdQA8b7aZ67Q+7i5P0x/bp9+/8+RohtBUQ+PTeMcQY9Bhe79xd3Le1hHL
+        JNgA5FJ2gTXl7BaXV7I5d7+/hU2Jd0qVunL7+UHzzkN5244qiTUO
+        -----END RSA PRIVATE KEY-----
+    ssh_host_rsa_key_pub:
+      path: /etc/ssh/ssh_host_rsa_key.pub
+      ensure: present
+      owner: root
+      group: root
+      mode: u=rw,ga=r
+      content: |
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLQ3enal5gvYyCUiHtBuEFi8EbA2RgWDBnoByeJ7Z9anSek7SY2tNaU5je9MfZLQ0Y9uNcFK2jliLlrUfPKwBouguhoZFt0Df80UN+OKA5CZQ4sOtmPB5mD2ylF3TqIbYqKYDeFSQssGyaIQyqPQh1enAZF6Udln6kQyyFoxtCYEWayxqGC4PgujMnu5nRhAJWE4WPOWbbvkjvMcsG4aR1brJj9uY+wnpaf7MgBARhJHXklnKZuY+1r0tiTs5KUAC8ptaGRjsFFxrk/EAJ0AlN3Qqn2CGR3OXft9SZWiGh2V0AoTWW+RoFeyCAgX7tFV+Y3heMfi6ogjAl7KELiLtF ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDLQ3enal5gvYyCUiHtBuEFi8EbA2RgWDBnoByeJ7Z9anSek7SY2tNaU5je9MfZLQ0Y9uNcFK2jliLlrUfPKwBouguhoZFt0Df80UN+OKA5CZQ4sOtmPB5mD2ylF3TqIbYqKYDeFSQssGyaIQyqPQh1enAZF6Udln6kQyyFoxtCYEWayxqGC4PgujMnu5nRhAJWE4WPOWbbvkjvMcsG4aR1brJj9uY+wnpaf7MgBARhJHXklnKZuY+1r0tiTs5KUAC8ptaGRjsFFxrk/EAJ0AlN3Qqn2CGR3OXft9SZWiGh2V0AoTWW+RoFeyCAgX7tFV+Y3heMfi6ogjAl7KELiLtF root@gitlab

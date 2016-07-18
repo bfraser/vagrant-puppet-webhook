@@ -1,0 +1,65 @@
+---
+  # SSH Keys
+  sshkeys:
+    id_rsa:
+      path: /var/lib/puppet/.ssh/id_rsa
+      ensure: present
+      mode: a-r,u=rw
+      content: |
+        -----BEGIN RSA PRIVATE KEY-----
+        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
+        -----END RSA PRIVATE KEY-----
+    id_rsa_pub:
+      path: /var/lib/puppet/.ssh/id_rsa.pub
+      ensure: present
+      mode: a-r,u=rw
+      content: |
+        ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC3yDgFiTjL7lEwOneQwLjScZ2MfYFAhcEGPzgomIfrvqZBKCSiESq7Q/jfipyg6cNyn7pv9NZGR0Bdj6qA+pTgzPXtUroyxIMWLvF9PC1SVa682+WtV20tlyLXS74euLpCUyQ+AKNhkjsA1CfrGjo+TpBKVPm4Yk16uQLEUMqoDbX4hW/13UwpiFqtvMLNNKAz0/LmgFXYdRAjCJmpHfWn+c665vcWuVZy2+4gcaTR/6y1isDEj2VPhi4bsylweCy3jBMzb3lQoXkY9gTOIz8vd7jy8mt1me6yzy2ui+tmO/TKPaV3nFXPz7COYIHLOj7120Z3d+6MZkl8ghf0t1+KnD4p06agRIb7QurXhGPYv/6l6lTXsFGT+nc0672BTpxbwdr/sv4P7EEsRLPYO8c4mu49pO45zHIArLnGE/VOeArfdBn3LUKDd1Ox268N8e5PcFzhEHrRe4rvZxTAhBW9FeDKotkSw29yUhm/oYwK6LMhQu2j2nyJYYlApvB5cfltNaSk4jUjKixT0Pm3+i2v9QJTRaxVweAa/ZZLjfeWdqfOJ6XtN6Di89NFbIhNsKEdLuJR0RXQLd5T5sj7rbCH4zuRvamExXeewSu0ULEUoQWk1szjV8HbFg90f73+J8RwqjFaQYPxo3ENkr3z1JV0WqAd4RyQqzeEvo2eNRVT4w== root@puppet
