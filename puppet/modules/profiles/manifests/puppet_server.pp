@@ -9,9 +9,15 @@ class profiles::puppet_server {
     group => 'puppet',
   }
 
-  file { ['/var/lib/puppet/.ssh/','/var/lib/puppet/r10k/']:
+  file { ['/var/lib/puppet/.ssh/','/var/lib/puppet/r10k/','/opt/puppetlabs/','/opt/puppetlabs/server/','/opt/puppetlabs/server/apps/','/opt/puppetlabs/server/apps/puppetserver']:
     ensure => directory,
     mode   => 'u=rwx',
+  }
+
+  file { '/var/lib/puppet/.ssh/known_hosts':
+    ensure => present,
+    mode   => '644',
+    content => "gitlab-01.example.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIsG7XCJP10buPQSOKQUCXwNvvYDux2gdkOAwxXUHk2N+02twzapGRUq2SuE/9/ks33zmpBAR/W/HRUvKvHNSDE=\n"
   }
 
   $sshkeys = hiera_hash('sshkeys')
@@ -26,12 +32,6 @@ class profiles::puppet_server {
   #  create_resources('git_deploy_key', $deploykeys)
   # }
 
-  sshkey {'gitlab-01.example.com':
-    ensure => present,
-    type   => 'ssh-rsa',
-    target => '/var/lib/puppet/.ssh/known_hosts',
-    key    => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDLQ3enal5gvYyCUiHtBuEFi8EbA2RgWDBnoByeJ7Z9anSek7SY2tNaU5je9MfZLQ0Y9uNcFK2jliLlrUfPKwBouguhoZFt0Df80UN+OKA5CZQ4sOtmPB5mD2ylF3TqIbYqKYDeFSQssGyaIQyqPQh1enAZF6Udln6kQyyFoxtCYEWayxqGC4PgujMnu5nRhAJWE4WPOWbbvkjvMcsG4aR1brJj9uY+wnpaf7MgBARhJHXklnKZuY+1r0tiTs5KUAC8ptaGRjsFFxrk/EAJ0AlN3Qqn2CGR3OXft9SZWiGh2V0AoTWW+RoFeyCAgX7tFV+Y3heMfi6ogjAl7KELiLtF'
-  }
 
   class { '::r10k::webhook::config':
     protected       => false,

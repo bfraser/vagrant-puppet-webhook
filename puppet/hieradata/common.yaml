@@ -20,7 +20,7 @@
   # r10k
   r10k::sources:
     puppet:
-      remote: 'ssh://git@gitlab-01.example.com/puppet/control-repo.git'
+      remote: 'ssh://git@gitlab-01.example.com/root/control-repo.git'
       basedir: "%{::settings::confdir}/environments"
   r10k::cachedir: /var/lib/puppet/r10k
 
