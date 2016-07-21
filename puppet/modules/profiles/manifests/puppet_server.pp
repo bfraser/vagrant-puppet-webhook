@@ -3,6 +3,7 @@ class profiles::puppet_server {
   include ::hiera
   include ::r10k
   include ::puppet
+  include ::ssh
 
   File {
     owner => 'puppet',

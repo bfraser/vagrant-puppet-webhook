@@ -18,6 +18,9 @@ mod 'theforeman/foreman'
 # Hiera
 mod 'hunner/hiera'
 
+#SSH
+mod 'ghoneycutt/ssh'
+
 # R10k
 mod 'croddy/make'
 mod 'gentoo/portage'

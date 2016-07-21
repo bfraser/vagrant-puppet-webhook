@@ -17,6 +17,9 @@
     - common
   hiera::master_service: puppetserver
 
+  # SSH
+  ssh::ssh_config_hash_known_hosts: 'no'
+
   # r10k
   r10k::sources:
     puppet:
