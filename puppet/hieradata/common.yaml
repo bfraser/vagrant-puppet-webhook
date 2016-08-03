@@ -30,6 +30,7 @@
   puppet::server_environments: []
   puppet::server_foreman: true
   puppet::server_implementation: puppetserver
+  puppet::server_puppetserver_version: '2.4.0'
 
   # Deploy Keys
   deploykeys:
