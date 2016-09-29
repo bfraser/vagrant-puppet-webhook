@@ -29,8 +29,7 @@ Vagrant.configure(2) do |config|
           virtualbox.memory = settings[component]['memory']
 
           override.vm.box = settings[component]['image']
-          config.vm.network "private_network", ip: settings[component]['ip'],
-             virtualbox__intnet: "mynetwork"
+          config.vm.network "private_network", ip: settings[component]['ip']
         end
 
         # Settings for libvirt provider (requires 'vagrant-libvirt' plugin)
