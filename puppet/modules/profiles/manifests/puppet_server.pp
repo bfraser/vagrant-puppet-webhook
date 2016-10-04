@@ -15,10 +15,15 @@ class profiles::puppet_server {
     mode   => 'u=rwx',
   }
 
+  exec { 'ssh-keyscan gitlab-01.example.com > /var/lib/puppet/.ssh/known_hosts':
+    path   => '/usr/bin:/usr/sbin:/bin',
+    require => File['/var/lib/puppet/.ssh/known_hosts']
+  }
+
+
   file { '/var/lib/puppet/.ssh/known_hosts':
     ensure => present,
     mode   => '644',
-    content => "gitlab-01.example.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBIsG7XCJP10buPQSOKQUCXwNvvYDux2gdkOAwxXUHk2N+02twzapGRUq2SuE/9/ks33zmpBAR/W/HRUvKvHNSDE=\n"
   }
 
   $sshkeys = hiera_hash('sshkeys')
@@ -33,6 +38,14 @@ class profiles::puppet_server {
   #  create_resources('git_deploy_key', $deploykeys)
   # }
 
+  package { 'ruby2.0':
+    provider => apt,
+  }
+
+  package { 'ruby2.0-dev':
+    provider => apt,
+  }
+
 
   class { '::r10k::webhook::config':
     protected       => false,
@@ -44,6 +57,6 @@ class profiles::puppet_server {
   class { '::r10k::webhook':
     user    => 'puppet',
     group   => 'puppet',
-    require => Class['::r10k::webhook::config'],
+    require => [Class['::r10k::webhook::config'], Package['ruby2.0']]
   }
 }
