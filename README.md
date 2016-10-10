@@ -56,7 +56,7 @@ In future it may be possible for the configuration file to be generated automati
     nodes: 1
     cpus: 2
     memory: 2048
-    image: matjazp/ubuntu-trusty64
+    image: puppetlabs/ubuntu-14.04-64-nocm
     #image: ami-af5a4cc5
     machine_type: t2.micro
   # Puppet: Puppet master, for r10k webhook
@@ -65,7 +65,7 @@ In future it may be possible for the configuration file to be generated automati
     nodes: 1
     cpus: 1
     memory: 512
-    image: matjazp/ubuntu-trusty64
+    image: puppetlabs/ubuntu-14.04-64-nocm
     #image: ami-af5a4cc5
     machine_type: t2.micro
 

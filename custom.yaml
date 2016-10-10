@@ -1,0 +1,58 @@
+---
+  # Configure stack here
+  # ---
+  # Note: 'image' examples include:
+  #   'matjazp/ubuntu-trusty64' (libvirt)
+  #   'puppetlabs/ubuntu-14.04-64-nocm' (virtualbox)
+  #   'ami-ff427095' (AWS, https://cloud-images.ubuntu.com/locator/ec2/)
+  #   'ubuntu-14-04' (Google)
+  # Note: 'machine_type' examples include:
+  #   't2.micro' (AWS, http://www.ec2instances.info/)
+  #   'g1-small' (Google)
+  # ---
+  # GitLab: for on premise version control
+  gitlab:
+    enabled: true
+    nodes: 1
+    cpus: 2
+    memory: 2048
+    image: puppetlabs/ubuntu-14.04-64-nocm
+    #image: ami-af5a4cc5
+    machine_type: t2.micro
+  # Puppet: Puppet master, for r10k webhook
+  puppetmaster:
+    enabled: true
+    nodes: 1
+    cpus: 1
+    memory: 4096
+    image: puppetlabs/ubuntu-14.04-64-nocm
+    #image: ami-af5a4cc5
+    machine_type: t2.micro
+
+  # Puppet provisioner settings
+  puppet:
+    version: 3.8.6
+
+  # AWS provider settings
+  aws:
+    key: # Enter your AWS key
+    secret: # Enter your AWS secret key
+    keypair: # Enter the name of your EC2 keypair
+    region: us-east-1
+    subnet_id: # Must exist
+    security_group: # Must exist and permit inbound SSH
+    associate_public_ip: true # Associate a public IP with each instance
+
+  # Google provider settings
+  google:
+    client_email: # Enter your GCE service account email
+    json_key_location: client_secrets.json
+    project_id: # Enter your GCE project ID
+
+  # Libvirt provider settings
+  libvirt:
+    nfs: false
+
+  ssh:
+    private_key_path: ~/.ssh/id_rsa
+    username: chespi

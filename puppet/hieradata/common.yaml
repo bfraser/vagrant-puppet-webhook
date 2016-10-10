@@ -17,10 +17,13 @@
     - common
   hiera::master_service: puppetserver
 
+  # SSH
+  ssh::ssh_config_hash_known_hosts: 'no'
+
   # r10k
   r10k::sources:
     puppet:
-      remote: 'ssh://git@gitlab-01.example.com/puppet/control-repo.git'
+      remote: 'ssh://git@gitlab-01.example.com/root/control-repo.git'
       basedir: "%{::settings::confdir}/environments"
   r10k::cachedir: /var/lib/puppet/r10k
 
@@ -29,7 +32,7 @@
   puppet::server_common_modules_path: ''
   puppet::server_environments: []
   puppet::server_foreman: true
-  puppet::server_implementation: puppetserver
+  #puppet::server_implementation: puppetserver
 
   # Deploy Keys
   deploykeys:

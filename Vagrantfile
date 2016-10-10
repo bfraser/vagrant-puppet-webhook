@@ -12,7 +12,17 @@ components = %w(gitlab puppetmaster)
 Vagrant.configure(2) do |config|
   # Automatically manage host entries (requires 'vagrant-hostmanager' plugin)
   config.hostmanager.enabled = true
-
+  config.hostmanager.manage_host = true
+  config.hostmanager.manage_guest = true
+  config.hostmanager.ignore_private_ip = false
+  config.hostmanager.ip_resolver = proc do |machine|
+    result = ""
+    machine.communicate.execute("ifconfig eth1") do |type, data|
+        result << data if type == :stdout
+    end
+    (ip = /inet addr:(\d+\.\d+\.\d+\.\d+)/.match(result)) && ip[1]
+    end
+  config.vm.network "private_network", type: "dhcp"
   components.each do |component|
     next component unless settings[component]['enabled']
 
@@ -27,7 +37,6 @@ Vagrant.configure(2) do |config|
         node.vm.provider :virtualbox do |virtualbox, override|
           virtualbox.cpus = settings[component]['cpus']
           virtualbox.memory = settings[component]['memory']
-
           override.vm.box = settings[component]['image']
         end
 

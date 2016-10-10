@@ -3,15 +3,27 @@ class profiles::puppet_server {
   include ::hiera
   include ::r10k
   include ::puppet
+  include ::ssh
 
   File {
     owner => 'puppet',
     group => 'puppet',
   }
 
-  file { ['/var/lib/puppet/.ssh/','/var/lib/puppet/r10k/']:
+  file { ['/var/lib/puppet/.ssh/','/var/lib/puppet/r10k/','/opt/puppetlabs/','/opt/puppetlabs/server/','/opt/puppetlabs/server/apps/','/opt/puppetlabs/server/apps/puppetserver']:
     ensure => directory,
     mode   => 'u=rwx',
+  }
+
+  exec { 'ssh-keyscan gitlab-01.example.com > /var/lib/puppet/.ssh/known_hosts':
+    path   => '/usr/bin:/usr/sbin:/bin',
+    require => File['/var/lib/puppet/.ssh/known_hosts']
+  }
+
+
+  file { '/var/lib/puppet/.ssh/known_hosts':
+    ensure => present,
+    mode   => '644',
   }
 
   $sshkeys = hiera_hash('sshkeys')
@@ -26,12 +38,14 @@ class profiles::puppet_server {
   #  create_resources('git_deploy_key', $deploykeys)
   # }
 
-  sshkey {'gitlab-01.example.com':
-    ensure => present,
-    type   => 'ssh-rsa',
-    target => '/var/lib/puppet/.ssh/known_hosts',
-    key    => 'AAAAB3NzaC1yc2EAAAADAQABAAABAQDLQ3enal5gvYyCUiHtBuEFi8EbA2RgWDBnoByeJ7Z9anSek7SY2tNaU5je9MfZLQ0Y9uNcFK2jliLlrUfPKwBouguhoZFt0Df80UN+OKA5CZQ4sOtmPB5mD2ylF3TqIbYqKYDeFSQssGyaIQyqPQh1enAZF6Udln6kQyyFoxtCYEWayxqGC4PgujMnu5nRhAJWE4WPOWbbvkjvMcsG4aR1brJj9uY+wnpaf7MgBARhJHXklnKZuY+1r0tiTs5KUAC8ptaGRjsFFxrk/EAJ0AlN3Qqn2CGR3OXft9SZWiGh2V0AoTWW+RoFeyCAgX7tFV+Y3heMfi6ogjAl7KELiLtF'
+  package { 'ruby2.0':
+    provider => apt,
   }
+
+  package { 'ruby2.0-dev':
+    provider => apt,
+  }
+
 
   class { '::r10k::webhook::config':
     protected       => false,
@@ -43,6 +57,6 @@ class profiles::puppet_server {
   class { '::r10k::webhook':
     user    => 'puppet',
     group   => 'puppet',
-    require => Class['::r10k::webhook::config'],
+    require => [Class['::r10k::webhook::config'], Package['ruby2.0']]
   }
 }
