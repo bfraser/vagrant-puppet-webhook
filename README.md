@@ -112,7 +112,7 @@ In order to bring up the environment for the first time, it will be necessary to
 3. Create the ```custom.yaml``` file manually, using the [example above](#custom-configuration) if necessary. Each of the provider blocks are necessary, even if you aren't using them. Vagrant won't run if they aren't there
 4. Create the ```puppet/vendor``` directory manually.
 ```
-mkdir -p puppet/vendor
+mkdir -p puppet/environments/production/vendor
 ```
 
 This last step is necessary since empty directories cannot be tracked in Git, and the ```vagrant-r10k``` plugin will remove the directory's contents, making it impossible to have a placeholder file such as ```README.md``` or ```.gitignore```. If you have a solution so this step is not required, please contribute :)
