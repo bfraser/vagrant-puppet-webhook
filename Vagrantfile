@@ -81,17 +81,19 @@ Vagrant.configure(2) do |config|
 
         # Install Puppet modules (needs 'vagrant-r10k' and 'puppet' plugins)
         node.r10k.puppet_dir = 'puppet'
-        node.r10k.puppetfile_path = 'puppet/Puppetfile'
-        node.r10k.module_path = 'puppet/vendor'
+        node.r10k.puppetfile_path = 'puppet/environments/production/Puppetfile'
+        node.r10k.module_path = 'puppet/environments/production/vendor'
 
         # Install Puppet (requires 'vagrant-puppet-install' plugin)
         node.puppet_install.puppet_version = settings['puppet']['version']
 
         # Provision with Puppet
         node.vm.provision :puppet do |puppet|
-          puppet.manifests_path = 'puppet/manifests'
+          puppet.environment_path = 'puppet/environments'
+          puppet.environment = 'production'
+          puppet.manifests_path = 'puppet/environments/production/manifests'
           puppet.manifest_file = 'default.pp'
-          puppet.module_path = ['puppet/modules', 'puppet/vendor']
+          puppet.module_path = ['puppet/environments/production/modules', 'puppet/environments/production/vendor']
           puppet.hiera_config_path = 'puppet/hiera.yaml'
           puppet.working_directory = '/tmp/vagrant-puppet'
         end

@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: foreman::config::passenger
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::foreman::config::passenger";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (f)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">foreman::config::passenger</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="../puppet_class_list.html"></iframe>
+
+      <div id="content"><h1>Puppet Class: foreman::config::passenger</h1>
+<div class="box_info">
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/config/passenger.pp
+    </dd>
+  </dl>
+</div>
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Configure the foreman service using passenger</p>
+
+<p>=== Parameters:</p>
+
+<p>$app_root:: Root of the application.</p>
+
+<p>$listen_on_interface:: Specify which interface to bind passenger to. 
+Defaults to all interfaces.</p>
+
+<p>$ruby:: Path to Ruby interpreter</p>
+
+<p>$priority:: Apache vhost priority</p>
+
+<p>$servername:: Servername for the vhost.</p>
+
+<p>$serveraliases:: Serveraliases for the vhost.  type:array</p>
+
+<p>$server_port:: Port for Apache to listen on HTTP requests  type:integer</p>
+
+<p>$server_ssl_port:: Port for Apache to listen on HTTPS requests 
+type:integer</p>
+
+<p>$ssl:: Whether to enable SSL.</p>
+
+<p>$ssl_cert:: Location of the SSL certificate file.</p>
+
+<p>$ssl_certs_dir:: Location of additional certificates for SSL client
+authentication.</p>
+
+<p>$ssl_key:: Location of the SSL key file.</p>
+
+<p>$ssl_ca:: Location of the SSL CA file</p>
+
+<p>$ssl_chain:: Location of the SSL chain file</p>
+
+<p>$ssl_crl:: Location of the SSL certificate revocation list file</p>
+
+<p>$use_vhost:: Whether to install a vhost. Note that using ssl and  no vhost
+is unsupported.</p>
+
+<p>$user:: The user under which the application runs.</p>
+
+<p>$prestart:: Pre-start the first passenger worker instance process during
+httpd start.  type:boolean</p>
+
+<p>$min_instances:: Minimum passenger worker instances to keep when
+application is idle.</p>
+
+<p>$start_timeout:: Amount of seconds to wait for Ruby application boot.</p>
+
+<p>$keepalive:: Enable KeepAlive setting of Apache?  type:boolean</p>
+
+<p>$max_keepalive_requests:: MaxKeepAliveRequests setting of Apache  (Number
+of requests allowed on a persistent connection)  type:integer</p>
+
+<p>$keepalive_timeout:: KeepAliveTimeout setting of Apache  (Seconds the
+server will wait for subsequent requests on a persistent connection) 
+type:integer</p>
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>app_root</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::app_root</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>listen_on_interface</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::passenger_interface</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ruby</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::passenger_ruby</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>priority</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::vhost_priority</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>servername</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::servername</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>serveraliases</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::serveraliases</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_port</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_port</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_port</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_ssl_port</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::ssl</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_ca</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_ssl_ca</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_chain</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_ssl_chain</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_cert</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_ssl_cert</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_certs_dir</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_ssl_certs_dir</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_key</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_ssl_key</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_crl</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::server_ssl_crl</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>use_vhost</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::use_vhost</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::user</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>prestart</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::passenger_prestart</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>min_instances</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::passenger_min_instances</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>start_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::passenger_start_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>foreman_url</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::foreman_url</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>keepalive</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::keepalive</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_keepalive_requests</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::max_keepalive_requests</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>keepalive_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::keepalive_timeout</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/config/passenger.pp', line 62</span>
+
+class foreman::config::passenger(
+  $app_root               = $::foreman::app_root,
+  $listen_on_interface    = $::foreman::passenger_interface,
+  $ruby                   = $::foreman::passenger_ruby,
+  $priority               = $::foreman::vhost_priority,
+  $servername             = $::foreman::servername,
+  $serveraliases          = $::foreman::serveraliases,
+  $server_port            = $::foreman::server_port,
+  $server_ssl_port        = $::foreman::server_ssl_port,
+  $ssl                    = $::foreman::ssl,
+  $ssl_ca                 = $::foreman::server_ssl_ca,
+  $ssl_chain              = $::foreman::server_ssl_chain,
+  $ssl_cert               = $::foreman::server_ssl_cert,
+  $ssl_certs_dir          = $::foreman::server_ssl_certs_dir,
+  $ssl_key                = $::foreman::server_ssl_key,
+  $ssl_crl                = $::foreman::server_ssl_crl,
+  $use_vhost              = $::foreman::use_vhost,
+  $user                   = $::foreman::user,
+  $prestart               = $::foreman::passenger_prestart,
+  $min_instances          = $::foreman::passenger_min_instances,
+  $start_timeout          = $::foreman::passenger_start_timeout,
+  $foreman_url            = $::foreman::foreman_url,
+  $keepalive              = $::foreman::keepalive,
+  $max_keepalive_requests = $::foreman::max_keepalive_requests,
+  $keepalive_timeout      = $::foreman::keepalive_timeout,
+) {
+  # validate parameter values
+  if $listen_on_interface {
+    validate_string($listen_on_interface)
+  }
+  validate_string($servername)
+  validate_bool($ssl)
+  validate_bool($prestart)
+  validate_bool($keepalive)
+  validate_integer($max_keepalive_requests)
+  validate_integer($keepalive_timeout)
+  validate_string($priority)
+  validate_integer($server_port)
+  validate_integer($server_ssl_port)
+
+  $docroot = &quot;${app_root}/public&quot;
+  $suburi_parts = split($foreman_url, &#39;/&#39;)
+  $suburi_parts_count = size($suburi_parts) - 1
+  if $suburi_parts_count &gt;= 3 {
+    $suburi_without_slash = join(values_at($suburi_parts, [&quot;3-${suburi_parts_count}&quot;]), &#39;/&#39;)
+    if $suburi_without_slash {
+      $suburi = &quot;/${suburi_without_slash}&quot;
+    }
+  }
+
+  include ::apache
+  include ::apache::mod::headers
+  include ::apache::mod::passenger
+
+  if $use_vhost {
+    # Check the value in case the interface doesn&#39;t exist, otherwise listen on all interfaces
+    if $listen_on_interface and $listen_on_interface in split($::interfaces, &#39;,&#39;) {
+      $listen_interface = inline_template(&quot;&lt;%= @ipaddress_${listen_on_interface} %&gt;&quot;)
+    } else {
+      $listen_interface = undef
+    }
+
+    $http_prestart = $prestart ? {
+      true  =&gt; &quot;http://${servername}:${server_port}&quot;,
+      false =&gt; undef,
+    }
+
+    file { &quot;${apache::confd_dir}/${priority}-foreman.d&quot;:
+      ensure  =&gt; &#39;directory&#39;,
+      owner   =&gt; &#39;root&#39;,
+      group   =&gt; &#39;root&#39;,
+      mode    =&gt; &#39;0644&#39;,
+      purge   =&gt; true,
+      recurse =&gt; true,
+    }
+
+    $keepalive_onoff = $keepalive ? {
+      true    =&gt; &#39;on&#39;,
+      default =&gt; &#39;off&#39;,
+    }
+
+    apache::vhost { &#39;foreman&#39;:
+      add_default_charset     =&gt; &#39;UTF-8&#39;,
+      docroot                 =&gt; $docroot,
+      manage_docroot          =&gt; false,
+      ip                      =&gt; $listen_interface,
+      options                 =&gt; [&#39;SymLinksIfOwnerMatch&#39;],
+      passenger_app_root      =&gt; $app_root,
+      passenger_min_instances =&gt; $min_instances,
+      passenger_pre_start     =&gt; $http_prestart,
+      passenger_start_timeout =&gt; $start_timeout,
+      passenger_ruby          =&gt; $ruby,
+      port                    =&gt; $server_port,
+      priority                =&gt; $priority,
+      servername              =&gt; $servername,
+      serveraliases           =&gt; $serveraliases,
+      keepalive               =&gt; $keepalive_onoff,
+      max_keepalive_requests  =&gt; $max_keepalive_requests,
+      keepalive_timeout       =&gt; $keepalive_timeout,
+      custom_fragment         =&gt; template(&#39;foreman/_assets.conf.erb&#39;, &#39;foreman/_virt_host_include.erb&#39;,
+                                          &#39;foreman/_suburi.conf.erb&#39;),
+    }
+
+    if $ssl {
+      $https_prestart = $prestart ? {
+        true  =&gt; &quot;https://${servername}:${server_ssl_port}&quot;,
+        false =&gt; undef,
+      }
+      if $ssl_crl and $ssl_crl != &#39;&#39; {
+        $ssl_crl_real = $ssl_crl
+        $ssl_crl_check = &#39;chain&#39;
+      } else {
+        $ssl_crl_real = undef
+        $ssl_crl_check = undef
+      }
+
+      file { &quot;${apache::confd_dir}/${priority}-foreman-ssl.d&quot;:
+        ensure  =&gt; &#39;directory&#39;,
+        owner   =&gt; &#39;root&#39;,
+        group   =&gt; &#39;root&#39;,
+        mode    =&gt; &#39;0644&#39;,
+        purge   =&gt; true,
+        recurse =&gt; true,
+      }
+
+      apache::vhost { &#39;foreman-ssl&#39;:
+        add_default_charset     =&gt; &#39;UTF-8&#39;,
+        docroot                 =&gt; $docroot,
+        manage_docroot          =&gt; false,
+        ip                      =&gt; $listen_interface,
+        options                 =&gt; [&#39;SymLinksIfOwnerMatch&#39;],
+        passenger_app_root      =&gt; $app_root,
+        passenger_min_instances =&gt; $min_instances,
+        passenger_pre_start     =&gt; $https_prestart,
+        passenger_start_timeout =&gt; $start_timeout,
+        passenger_ruby          =&gt; $ruby,
+        port                    =&gt; $server_ssl_port,
+        priority                =&gt; $priority,
+        servername              =&gt; $servername,
+        serveraliases           =&gt; $serveraliases,
+        ssl                     =&gt; true,
+        ssl_cert                =&gt; $ssl_cert,
+        ssl_certs_dir           =&gt; $ssl_certs_dir,
+        ssl_key                 =&gt; $ssl_key,
+        ssl_chain               =&gt; $ssl_chain,
+        ssl_ca                  =&gt; $ssl_ca,
+        ssl_crl                 =&gt; $ssl_crl_real,
+        ssl_crl_check           =&gt; $ssl_crl_check,
+        ssl_verify_client       =&gt; &#39;optional&#39;,
+        ssl_options             =&gt; &#39;+StdEnvVars +ExportCertData&#39;,
+        ssl_verify_depth        =&gt; &#39;3&#39;,
+        keepalive               =&gt; $keepalive_onoff,
+        max_keepalive_requests  =&gt; $max_keepalive_requests,
+        keepalive_timeout       =&gt; $keepalive_timeout,
+        custom_fragment         =&gt; template(&#39;foreman/_assets.conf.erb&#39;, &#39;foreman/_ssl_virt_host_include.erb&#39;,
+                                            &#39;foreman/_suburi.conf.erb&#39;),
+      }
+    }
+  } else {
+    file { &#39;foreman_vhost&#39;:
+      path    =&gt; &quot;${apache::params::conf_dir}/foreman.conf&quot;,
+      content =&gt; template(&#39;foreman/foreman-apache.conf.erb&#39;),
+      mode    =&gt; &#39;0644&#39;,
+    }
+
+    if $ssl {
+      fail(&#39;Use of ssl = true and use_vhost = false is unsupported&#39;)
+    }
+  }
+
+  file { [&quot;${app_root}/config.ru&quot;, &quot;${app_root}/config/environment.rb&quot;]:
+    owner =&gt; $user,
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Thu Jan  5 14:14:26 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-2.3.0).
+</div>
+
+    </div>
+  </body>
+</html>

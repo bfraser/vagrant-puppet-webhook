@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: foreman::puppetmaster
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::foreman::puppetmaster";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (f)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">foreman::puppetmaster</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="../puppet_class_list.html"></iframe>
+
+      <div id="content"><h1>Puppet Class: foreman::puppetmaster</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd><span class='object_link'><a href="foreman_3A_3Aparams.html" title="puppet_classes::foreman::params (puppet_class)">foreman::params</a></span></dd>
+  </dl>
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/puppetmaster.pp
+    </dd>
+  </dl>
+</div>
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>This class includes the necessary scripts for Foreman on the puppetmaster
+and is intented to be added to your puppetmaster</p>
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>foreman_url</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::foreman_url</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>foreman_user</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::foreman_user</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>foreman_password</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::foreman_password</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>reports</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::reports</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enc</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::enc</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>receive_facts</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::receive_facts</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppet_home</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppet_home</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppet_user</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppet_user</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppet_group</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppet_group</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppet_basedir</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppet_basedir</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppet_etcdir</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppet_etcdir</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppetmaster_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>report_timeout</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppetmaster_report_timeout</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_ca</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::client_ssl_ca</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_cert</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::client_ssl_cert</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl_key</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::client_ssl_key</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>enc_api</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;v2&#39;</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>report_api</span>
+      
+      
+        <span class='type'>(<tt>Any</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;v2&#39;</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/puppetmaster.pp', line 3</span>
+
+class foreman::puppetmaster (
+  $foreman_url      = $::foreman::params::foreman_url,
+  $foreman_user     = $::foreman::params::foreman_user,
+  $foreman_password = $::foreman::params::foreman_password,
+  $reports          = $::foreman::params::reports,
+  $enc              = $::foreman::params::enc,
+  $receive_facts    = $::foreman::params::receive_facts,
+  $puppet_home      = $::foreman::params::puppet_home,
+  $puppet_user      = $::foreman::params::puppet_user,
+  $puppet_group     = $::foreman::params::puppet_group,
+  $puppet_basedir   = $::foreman::params::puppet_basedir,
+  $puppet_etcdir    = $::foreman::params::puppet_etcdir,
+  $timeout          = $::foreman::params::puppetmaster_timeout,
+  $report_timeout   = $::foreman::params::puppetmaster_report_timeout,
+  $ssl_ca           = $::foreman::params::client_ssl_ca,
+  $ssl_cert         = $::foreman::params::client_ssl_cert,
+  $ssl_key          = $::foreman::params::client_ssl_key,
+  $enc_api          = &#39;v2&#39;,
+  $report_api       = &#39;v2&#39;,
+) inherits foreman::params {
+
+  case $::osfamily {
+    &#39;Debian&#39;: { $json_package = &#39;ruby-json&#39; }
+    default:  { $json_package = &#39;rubygem-json&#39; }
+  }
+
+  ensure_packages([$json_package])
+
+  file {&quot;${puppet_etcdir}/foreman.yaml&quot;:
+    content =&gt; template(&quot;${module_name}/puppet.yaml.erb&quot;),
+    mode    =&gt; &#39;0640&#39;,
+    owner   =&gt; &#39;root&#39;,
+    group   =&gt; $puppet_group,
+  }
+
+  if $reports {   # foreman reporter
+
+    exec { &#39;Create Puppet Reports dir&#39;:
+      command =&gt; &quot;/bin/mkdir -p ${puppet_basedir}/reports&quot;,
+      creates =&gt; &quot;${puppet_basedir}/reports&quot;,
+    }
+    file {&quot;${puppet_basedir}/reports/foreman.rb&quot;:
+      mode    =&gt; &#39;0644&#39;,
+      owner   =&gt; &#39;root&#39;,
+      group   =&gt; &#39;0&#39;,
+      source  =&gt; &quot;puppet:///modules/${module_name}/foreman-report_${report_api}.rb&quot;,
+      require =&gt; Exec[&#39;Create Puppet Reports dir&#39;],
+    }
+  }
+
+  if $enc {
+    file { &quot;${puppet_etcdir}/node.rb&quot;:
+      source =&gt; &quot;puppet:///modules/${module_name}/external_node_${enc_api}.rb&quot;,
+      mode   =&gt; &#39;0550&#39;,
+      owner  =&gt; $puppet_user,
+      group  =&gt; $puppet_group,
+    }
+
+    file { &quot;${puppet_home}/yaml&quot;:
+      ensure                  =&gt; directory,
+      owner                   =&gt; $puppet_user,
+      group                   =&gt; $puppet_group,
+      mode                    =&gt; &#39;0750&#39;,
+      selinux_ignore_defaults =&gt; true,
+    }
+
+    file { &quot;${puppet_home}/yaml/foreman&quot;:
+      ensure =&gt; directory,
+      owner  =&gt; $puppet_user,
+      group  =&gt; $puppet_group,
+      mode   =&gt; &#39;0750&#39;,
+    }
+
+    file { &quot;${puppet_home}/yaml/node&quot;:
+      ensure =&gt; directory,
+      owner  =&gt; $puppet_user,
+      group  =&gt; $puppet_group,
+      mode   =&gt; &#39;0750&#39;,
+    }
+
+    file { &quot;${puppet_home}/yaml/facts&quot;:
+      ensure =&gt; directory,
+      owner  =&gt; $puppet_user,
+      group  =&gt; $puppet_group,
+      mode   =&gt; &#39;0750&#39;,
+    }
+  }
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Thu Jan  5 14:14:26 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-2.3.0).
+</div>
+
+    </div>
+  </body>
+</html>

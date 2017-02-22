@@ -2,7 +2,7 @@
 :backends:
   - yaml
 :yaml:
-  :datadir: /vagrant/puppet/hieradata
+  :datadir: /vagrant/puppet/environments/%{environment}/hieradata
 :hierarchy:
   - "%{calling_class}"
   - common

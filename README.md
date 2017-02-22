@@ -14,6 +14,8 @@
 
 This repository contains a ```Vagrantfile``` and code necessary to provision a GitLab server and Puppet master, for testing a webhook to trigger r10k deploy.
 
+This build is based on Ubuntu 16.04 images for both puppet/gitlab and puppet 4.8.2 using Foreman as a front end.
+
 ## Setting up the Environment
 
 ### Requirements
@@ -56,22 +58,24 @@ In future it may be possible for the configuration file to be generated automati
     nodes: 1
     cpus: 2
     memory: 2048
-    image: matjazp/ubuntu-trusty64
+    image: puppetlabs/ubuntu-16.04-64-nocm
+    #image: matjazp/ubuntu-trusty64
     #image: ami-af5a4cc5
-    machine_type: t2.micro
+    #machine_type: t2.micro
   # Puppet: Puppet master, for r10k webhook
   puppetmaster:
     enabled: true
     nodes: 1
     cpus: 1
     memory: 512
-    image: matjazp/ubuntu-trusty64
+    image: puppetlabs/ubuntu-16.04-64-nocm
+    #image: matjazp/ubuntu-trusty64
     #image: ami-af5a4cc5
-    machine_type: t2.micro
+    #machine_type: t2.micro
 
   # Puppet provisioner settings
   puppet:
-    version: 3.8.6
+    version: 4.8.2
 
   # AWS provider settings
   aws:
@@ -96,6 +100,7 @@ In future it may be possible for the configuration file to be generated automati
   ssh:
     private_key_path: ~/.ssh/id_rsa
     username: # Enter your username here
+
 ```
 
 ## Bringing up the Environment

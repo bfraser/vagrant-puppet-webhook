@@ -1,0 +1,2094 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Puppet Class: foreman
+  
+    &mdash; Documentation by YARD 0.9.5
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  pathId = "puppet_classes::foreman";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="../puppet_class_list.html"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (f)</a> &raquo;
+    <span class='title'><span class='object_link'>Puppet Classes</span></span>
+     &raquo; 
+    <span class="title">foreman</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="puppet_class_list_link"
+        href="../puppet_class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <iframe id="search_frame" src="../puppet_class_list.html"></iframe>
+
+      <div id="content"><h1>Puppet Class: foreman</h1>
+<div class="box_info">
+  
+  <dl>
+    <dt>Inherits:</dt>
+    <dd><span class='object_link'><a href="foreman_3A_3Aparams.html" title="puppet_classes::foreman::params (puppet_class)">foreman::params</a></span></dd>
+  </dl>
+  
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>
+      manifests/init.pp
+    </dd>
+  </dl>
+</div>
+<h2>Overview</h2>
+<div class="docstring">
+  <div class="discussion">
+    
+<p>Manage your foreman server</p>
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>admin_username</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::admin_username</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Username for the initial admin user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>admin_password</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::admin_password</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Password of the initial admin user, default is randomly generated</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>admin_first_name</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::admin_first_name</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>First name of the initial admin user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>admin_last_name</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::admin_last_name</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Last name of the initial admin user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>admin_email</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::admin_email</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>E-mail address of the initial admin user</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_manage</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::db_manage</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if enabled, will install and configure the database server on this host</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_type</span>
+      
+      
+        <span class='type'>(<tt>Enum['mysql', 'postgresql', 'sqlite']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::db_type</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; type</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_delivery_method</span>
+      
+      
+        <span class='type'>(<tt>Optional[Enum['sendmail', 'smtp']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_delivery_method</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Email delivery method</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_smtp_address</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_smtp_address</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>SMTP server hostname, when delivery method is SMTP</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_smtp_port</span>
+      
+      
+        <span class='type'>(<tt>Integer[0, 65535]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_smtp_port</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>SMTP port</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_smtp_domain</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_smtp_domain</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>SMTP HELO domain</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_smtp_authentication</span>
+      
+      
+        <span class='type'>(<tt>Enum['none', 'plain', 'login', 'cram-md5']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_smtp_authentication</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>SMTP authentication method</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_smtp_user_name</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_smtp_user_name</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Username for SMTP server auth, if authentication is enabled</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_smtp_password</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_smtp_password</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Password for SMTP server auth, if authentication is enabled</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>locations_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::locations_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable locations?</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>organizations_enabled</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::organizations_enabled</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable organizations?</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>initial_organization</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::initial_organization</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of an initial organization</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>initial_location</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::initial_location</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of an initial location</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ipa_authentication</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::ipa_authentication</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable configuration for external authentication via IPA</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppetrun</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppetrun</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Should Foreman be able to start Puppet runs on nodes</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_source</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_source</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Template to use for email configuration file group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>foreman_url</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::HTTPUrl</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::foreman_url</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>URL on which foreman is going to run group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>unattended</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::unattended</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Should Foreman manage host provisioning as well group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>authentication</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::authentication</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable user authentication. Initial credentials are set using
+admin_username and admin_password. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>passenger</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::passenger</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Configure foreman via apache and passenger group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>passenger_ruby</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::passenger_ruby</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Ruby interpreter used to run Foreman under Passenger group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>passenger_ruby_package</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::passenger_ruby_package</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Package to install to provide Passenger libraries for the active Ruby
+interpreter group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>plugin_prefix</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::plugin_prefix</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>String which is prepended to the plugin package names group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>use_vhost</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::use_vhost</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enclose apache configuration in VirtualHost tags group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>servername</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::servername</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Server name of the VirtualHost in the webserver group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>serveraliases</span>
+      
+      
+        <span class='type'>(<tt>Array[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::serveraliases</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Server aliases of the VirtualHost in the webserver group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ssl</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::ssl</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable and set require_ssl in Foreman settings (note: requires passenger,
+SSL does not apply to kickstarts) group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>custom_repo</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::custom_repo</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>No need to change anything here by default if set to true, no repo will be
+added by this module, letting you to set it to some custom location. group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>repo</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::repo</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>This can be stable, nightly or a specific version i.e. 1.7 group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configure_epel_repo</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::configure_epel_repo</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>If disabled the EPEL repo will not be configured on Red Hat family systems.
+group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>configure_scl_repo</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::configure_scl_repo</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>If disabled the SCL repo will not be configured on Red Hat clone systems.
+(Currently only installs repos for CentOS and Scientific) group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>selinux</span>
+      
+      
+        <span class='type'>(<tt>Optional[Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::selinux</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>When undef, foreman-selinux will be installed if SELinux is enabled setting
+to false/true will override this check (e.g. set to false on 1.1) group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>gpgcheck</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::gpgcheck</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Turn on/off gpg check in repo files (effective only on RedHat family
+systems) group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>version</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::version</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Foreman package version, it&#39;s passed to ensure parameter of package
+resource can be set to specific version number, &#39;latest&#39;,
+&#39;present&#39; etc. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>plugin_version</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::plugin_version</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Foreman plugins package version, it&#39;s passed to ensure parameter of
+package resource can be set to &#39;installed&#39;, &#39;latest&#39;,
+&#39;present&#39; only group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_adapter</span>
+      
+      
+        <span class='type'>(<tt>Optional[Enum['mysql2', 'postgresql', 'sqlite3']]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;UNSET&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; adapter group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_host</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;UNSET&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; host group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_port</span>
+      
+      
+        <span class='type'>(<tt>Optional[Integer[0, 65635]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;UNSET&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; port group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_database</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;UNSET&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; database (e.g. foreman) group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_username</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::db_username</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; user (e.g. foreman) group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_password</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::db_password</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; password, default is randomly generated
+group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_sslmode</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>&#39;UNSET&#39;</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; ssl mode group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_pool</span>
+      
+      
+        <span class='type'>(<tt>Integer[0]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::db_pool</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Database &#39;production&#39; size of connection pool group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>db_manage_rake</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::db_manage_rake</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>if enabled, will run rake jobs, which depend on the database group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>app_root</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::app_root</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Name of foreman root directory group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>manage_user</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::manage_user</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Controls whether foreman module will manage the user on the system. group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::user</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>User under which foreman will run group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>group</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::group</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Primary group for the Foreman user group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>rails_env</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::rails_env</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Rails environment of foreman group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>user_groups</span>
+      
+      
+        <span class='type'>(<tt>Array[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::user_groups</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional groups for the Foreman user group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppet_home</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppet_home</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Puppet home directory group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>puppet_ssldir</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::puppet_ssldir</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Puppet SSL directory group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>passenger_interface</span>
+      
+      
+        <span class='type'>(<tt>Optional[String]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::passenger_interface</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines which network interface passenger should listen on, undef means all
+interfaces group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>passenger_prestart</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::passenger_prestart</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Pre-start the first passenger worker instance process during httpd start.
+group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>passenger_min_instances</span>
+      
+      
+        <span class='type'>(<tt>Integer[0]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::passenger_min_instances</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Minimum passenger worker instances to keep when application is idle. group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>passenger_start_timeout</span>
+      
+      
+        <span class='type'>(<tt>Integer[0]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::passenger_start_timeout</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Amount of seconds to wait for Ruby application boot. group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>vhost_priority</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::vhost_priority</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache vhost priority for the Foreman vhost conf file. group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_port</span>
+      
+      
+        <span class='type'>(<tt>Integer[0, 65535]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_port</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache port for HTTP requests group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_port</span>
+      
+      
+        <span class='type'>(<tt>Integer[0, 65535]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_port</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache port for HTTPS reqquests group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_ca</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_ca</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache mod_ssl SSLCACertificateFile setting in Foreman vhost conf
+file. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_chain</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_chain</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache mod_ssl SSLCertificateChainFile setting in Foreman vhost
+conf file. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_cert</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_cert</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache mod_ssl SSLCertificateFile setting in Foreman vhost conf
+file. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_certs_dir</span>
+      
+      
+        <span class='type'>(<tt>Variant[String[0], Stdlib::Absolutepath]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_certs_dir</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache mod_ssl SSLCACertificatePath setting in Foreman vhost conf
+file. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_key</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_key</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines Apache mod_ssl SSLCertificateKeyFile setting in Foreman vhost conf
+file. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>server_ssl_crl</span>
+      
+      
+        <span class='type'>(<tt>Optional[Variant[String[0], Stdlib::Absolutepath]]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_crl</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines the Apache mod_ssl SSLCARevocationFile setting in Foreman vhost
+conf file. group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>client_ssl_ca</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_ca</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines the SSL CA used to communicate with Foreman Proxies group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>client_ssl_cert</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_cert</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines the SSL certificate used to communicate with Foreman Proxies group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>client_ssl_key</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::server_ssl_key</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Defines the SSL private key used to communicate with Foreman Proxies group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>keepalive</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::keepalive</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable KeepAlive setting of Apache? group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>max_keepalive_requests</span>
+      
+      
+        <span class='type'>(<tt>Integer[0]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::max_keepalive_requests</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>MaxKeepAliveRequests setting of Apache (Number of requests allowed on a
+persistent connection) group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>keepalive_timeout</span>
+      
+      
+        <span class='type'>(<tt>Integer[0]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::keepalive_timeout</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>KeepAliveTimeout setting of Apache (Seconds the server will wait for
+subsequent requests on a persistent connection) group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>oauth_active</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::oauth_active</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable OAuth authentication for REST API group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>oauth_map_users</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::oauth_map_users</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Should Foreman use the foreman_user header to identify API user? group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>oauth_consumer_key</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::oauth_consumer_key</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>OAuth consumer key group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>oauth_consumer_secret</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::oauth_consumer_secret</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>OAuth consumer secret group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>http_keytab</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::http_keytab</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Path to keytab to be used for Kerberos authentication on the WebUI group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>pam_service</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::pam_service</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>PAM service used for host-based access control in IPA group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>ipa_manage_sssd</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::ipa_manage_sssd</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>If ipa_authentication is true, should the installer manage SSSD? You can
+disable it if you use another module for SSSD configuration group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>websockets_encrypt</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::websockets_encrypt</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Whether to encrypt websocket connections group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>websockets_ssl_key</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::websockets_ssl_key</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>SSL key file to use when encrypting websocket connections group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>websockets_ssl_cert</span>
+      
+      
+        <span class='type'>(<tt>Stdlib::Absolutepath</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::websockets_ssl_cert</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>SSL certificate file to use when encrypting websocket connections group:
+Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>logging_level</span>
+      
+      
+        <span class='type'>(<tt>Enum['debug', 'info', 'warn', 'error', 'fatal']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::logging_level</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Logging level of the Foreman application group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>loggers</span>
+      
+      
+        <span class='type'>(<tt>Hash[String, Boolean]</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::loggers</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Enable or disable specific loggers, e.g. =&gt; true group: Advanced
+parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_config_method</span>
+      
+      
+        <span class='type'>(<tt>Enum['<span class='object_link'><a href="foreman_3A_3Adatabase.html" title="puppet_classes::foreman::database (puppet_class)">database</a></span>', 'file']</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_config_method</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Configure email settings in database (1.14+) or configuration file
+(deprecated) group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>email_conf</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>$::foreman::params::email_conf</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Email configuration file under /etc/foreman group: Advanced parameters</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><div class="method_details_list">
+  <table class="source_code">
+    <tr>
+      <td>
+        <pre class="lines">
+
+
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406
+407
+408
+409
+410
+411
+412
+413
+414
+415
+416
+417
+418
+419
+420
+421
+422
+423
+424
+425
+426
+427
+428
+429
+430
+431
+432
+433
+434
+435
+436
+437
+438
+439
+440
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469
+470
+471
+472
+473
+474
+475
+476
+477
+478
+479
+480
+481
+482
+483
+484
+485
+486
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505</pre>
+      </td>
+      <td>
+        <pre class="code"><span class="info file"># File 'manifests/init.pp', line 354</span>
+
+class foreman (
+  $foreman_url               = $::foreman::params::foreman_url,
+  $puppetrun                 = $::foreman::params::puppetrun,
+  $unattended                = $::foreman::params::unattended,
+  $authentication            = $::foreman::params::authentication,
+  $passenger                 = $::foreman::params::passenger,
+  $passenger_ruby            = $::foreman::params::passenger_ruby,
+  $passenger_ruby_package    = $::foreman::params::passenger_ruby_package,
+  $plugin_prefix             = $::foreman::params::plugin_prefix,
+  $use_vhost                 = $::foreman::params::use_vhost,
+  $servername                = $::foreman::params::servername,
+  $serveraliases             = $::foreman::params::serveraliases,
+  $ssl                       = $::foreman::params::ssl,
+  $custom_repo               = $::foreman::params::custom_repo,
+  $repo                      = $::foreman::params::repo,
+  $configure_epel_repo       = $::foreman::params::configure_epel_repo,
+  $configure_scl_repo        = $::foreman::params::configure_scl_repo,
+  $selinux                   = $::foreman::params::selinux,
+  $gpgcheck                  = $::foreman::params::gpgcheck,
+  $version                   = $::foreman::params::version,
+  $plugin_version            = $::foreman::params::plugin_version,
+  $db_manage                 = $::foreman::params::db_manage,
+  $db_type                   = $::foreman::params::db_type,
+  $db_adapter                = &#39;UNSET&#39;,
+  $db_host                   = &#39;UNSET&#39;,
+  $db_port                   = &#39;UNSET&#39;,
+  $db_database               = &#39;UNSET&#39;,
+  $db_username               = $::foreman::params::db_username,
+  $db_password               = $::foreman::params::db_password,
+  $db_sslmode                = &#39;UNSET&#39;,
+  $db_pool                   = $::foreman::params::db_pool,
+  $db_manage_rake            = $::foreman::params::db_manage_rake,
+  $app_root                  = $::foreman::params::app_root,
+  $manage_user               = $::foreman::params::manage_user,
+  $user                      = $::foreman::params::user,
+  $group                     = $::foreman::params::group,
+  $user_groups               = $::foreman::params::user_groups,
+  $rails_env                 = $::foreman::params::rails_env,
+  $puppet_home               = $::foreman::params::puppet_home,
+  $puppet_ssldir             = $::foreman::params::puppet_ssldir,
+  $locations_enabled         = $::foreman::params::locations_enabled,
+  $organizations_enabled     = $::foreman::params::organizations_enabled,
+  $passenger_interface       = $::foreman::params::passenger_interface,
+  $vhost_priority            = $::foreman::params::vhost_priority,
+  $server_port               = $::foreman::params::server_port,
+  $server_ssl_port           = $::foreman::params::server_ssl_port,
+  $server_ssl_ca             = $::foreman::params::server_ssl_ca,
+  $server_ssl_chain          = $::foreman::params::server_ssl_chain,
+  $server_ssl_cert           = $::foreman::params::server_ssl_cert,
+  $server_ssl_certs_dir      = $::foreman::params::server_ssl_certs_dir,
+  $server_ssl_key            = $::foreman::params::server_ssl_key,
+  $server_ssl_crl            = $::foreman::params::server_ssl_crl,
+  $client_ssl_ca             = $::foreman::params::server_ssl_ca,
+  $client_ssl_cert           = $::foreman::params::server_ssl_cert,
+  $client_ssl_key            = $::foreman::params::server_ssl_key,
+  $keepalive                 = $::foreman::params::keepalive,
+  $max_keepalive_requests    = $::foreman::params::max_keepalive_requests,
+  $keepalive_timeout         = $::foreman::params::keepalive_timeout,
+  $oauth_active              = $::foreman::params::oauth_active,
+  $oauth_map_users           = $::foreman::params::oauth_map_users,
+  $oauth_consumer_key        = $::foreman::params::oauth_consumer_key,
+  $oauth_consumer_secret     = $::foreman::params::oauth_consumer_secret,
+  $passenger_prestart        = $::foreman::params::passenger_prestart,
+  $passenger_min_instances   = $::foreman::params::passenger_min_instances,
+  $passenger_start_timeout   = $::foreman::params::passenger_start_timeout,
+  $admin_username            = $::foreman::params::admin_username,
+  $admin_password            = $::foreman::params::admin_password,
+  $admin_first_name          = $::foreman::params::admin_first_name,
+  $admin_last_name           = $::foreman::params::admin_last_name,
+  $admin_email               = $::foreman::params::admin_email,
+  $initial_organization      = $::foreman::params::initial_organization,
+  $initial_location          = $::foreman::params::initial_location,
+  $ipa_authentication        = $::foreman::params::ipa_authentication,
+  $http_keytab               = $::foreman::params::http_keytab,
+  $pam_service               = $::foreman::params::pam_service,
+  $ipa_manage_sssd           = $::foreman::params::ipa_manage_sssd,
+  $websockets_encrypt        = $::foreman::params::websockets_encrypt,
+  $websockets_ssl_key        = $::foreman::params::websockets_ssl_key,
+  $websockets_ssl_cert       = $::foreman::params::websockets_ssl_cert,
+  $logging_level             = $::foreman::params::logging_level,
+  $loggers                   = $::foreman::params::loggers,
+  $email_config_method       = $::foreman::params::email_config_method,
+  $email_conf                = $::foreman::params::email_conf,
+  $email_source              = $::foreman::params::email_source,
+  $email_delivery_method     = $::foreman::params::email_delivery_method,
+  $email_smtp_address        = $::foreman::params::email_smtp_address,
+  $email_smtp_port           = $::foreman::params::email_smtp_port,
+  $email_smtp_domain         = $::foreman::params::email_smtp_domain,
+  $email_smtp_authentication = $::foreman::params::email_smtp_authentication,
+  $email_smtp_user_name      = $::foreman::params::email_smtp_user_name,
+  $email_smtp_password       = $::foreman::params::email_smtp_password,
+) inherits foreman::params {
+  if $db_adapter == &#39;UNSET&#39; {
+    $db_adapter_real = $::foreman::db_type ? {
+      &#39;sqlite&#39; =&gt; &#39;sqlite3&#39;,
+      &#39;mysql&#39;  =&gt; &#39;mysql2&#39;,
+      default  =&gt; $::foreman::db_type,
+    }
+  } else {
+    $db_adapter_real = $db_adapter
+  }
+  validate_bool($passenger)
+  if $passenger == false and $ipa_authentication {
+    fail(&quot;${::hostname}: External authentication via IPA can only be enabled when passenger is used.&quot;)
+  }
+  validate_bool($websockets_encrypt)
+  validate_re($logging_level, &#39;^(debug|info|warn|error|fatal)$&#39;)
+  validate_re($plugin_version, &#39;^(installed|present|latest)$&#39;)
+  validate_hash($loggers)
+  validate_array($serveraliases)
+  validate_re($email_config_method, &#39;^(database|file)$&#39;)
+  if $email_delivery_method {
+    validate_re($email_delivery_method, [&#39;^sendmail$&#39;, &#39;^smtp$&#39;], &quot;email_delivery_method can be either sendmail or smtp, not ${email_delivery_method}&quot;)
+  }
+  validate_bool($puppetrun)
+
+  include ::foreman::repo
+
+  Class[&#39;foreman::repo&#39;] ~&gt;
+  class { &#39;::foreman::install&#39;: } ~&gt;
+  class { &#39;::foreman::config&#39;: } ~&gt;
+  class { &#39;::foreman::database&#39;: } ~&gt;
+  class { &#39;::foreman::service&#39;: } -&gt;
+  Class[&#39;foreman&#39;] -&gt;
+  Foreman_smartproxy &lt;| base_url == $foreman_url |&gt;
+
+  # When db_manage and db_manage_rake are false, this extra relationship is required.
+  Class[&#39;foreman::config&#39;] ~&gt; Class[&#39;foreman::service&#39;]
+
+  # Anchor these separately so as not to break
+  # the notify between main classes
+  Class[&#39;foreman::install&#39;] ~&gt;
+  Package &lt;| tag == &#39;foreman-compute&#39; |&gt; ~&gt;
+  Class[&#39;foreman::service&#39;]
+
+  Class[&#39;foreman::repo&#39;] ~&gt;
+  Package &lt;| tag == &#39;foreman::cli&#39; |&gt; ~&gt;
+  Class[&#39;foreman&#39;]
+
+  Class[&#39;foreman::repo&#39;] ~&gt;
+  Package &lt;| tag == &#39;foreman::providers&#39; |&gt; -&gt;
+  Class[&#39;foreman&#39;]
+
+  # lint:ignore:spaceship_operator_without_tag
+  Class[&#39;foreman::database&#39;]~&gt;
+  Foreman::Plugin &lt;| |&gt; ~&gt;
+  Class[&#39;foreman::service&#39;]
+  # lint:endignore
+
+  contain &#39;foreman::settings&#39; # lint:ignore:relative_classname_inclusion (PUP-1597)
+  Class[&#39;foreman::database&#39;] -&gt; Class[&#39;foreman::settings&#39;]
+}</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+</div>
+
+      <div id="footer">
+  Generated on Thu Jan  5 14:14:25 2017 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.5 (ruby-2.3.0).
+</div>
+
+    </div>
+  </body>
+</html>
