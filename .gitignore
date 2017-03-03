@@ -1,4 +1,4 @@
 .vagrant
 client_secrets.json
-custom.yaml
-puppet/vendor
+#custom.yaml
+puppet/environments/production/vendor
