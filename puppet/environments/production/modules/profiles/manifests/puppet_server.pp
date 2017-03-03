@@ -1,8 +1,35 @@
 class profiles::puppet_server {
-  include ::foreman
   include ::hiera
   include ::r10k
-  include ::puppet
+	
+  ### To fix foreman reporting bug:  https://tickets.puppetlabs.com/browse/SERVER-17
+  package  { 'libbcprov-java':
+    ensure => 'present',
+  }
+
+  
+  class { '::puppet': 
+    server => true ,
+    #server_version => '2.7.0-1puppetlabs1',
+    #server_puppetserver_version => '2.7.0',
+    hiera_config => '$codedir/hiera.yaml',
+    splay => true,
+    listen => true,
+    autosign => true,
+    show_diff => true,
+    server_reports => 'foreman',
+    server_passenger => false,
+    server_jvm_min_heap_size => '1G',
+    server_jvm_max_heap_size => '1G',
+    server_jvm_extra_args    => '-XX:MaxPermSize=256m',
+  }
+
+  class {'foreman': 
+    notify  => Service['apache2']
+  }
+  include foreman_proxy
+
+
 
   File {
     owner => 'puppet',

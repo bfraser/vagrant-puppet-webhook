@@ -9,7 +9,7 @@ require 'etc'
 #
 # Usage: cache_data(namespace, name, initial_data)
 # Example: $password = cache_data('mysql', 'mysql_password', 'this_is_my_password')
-Puppet::Parser::Functions.newfunction(:cache_data, type: :rvalue) do |args|
+Puppet::Parser::Functions.newfunction(:cache_data, :type => :rvalue) do |args|
   raise Puppet::ParseError, 'Usage: cache_data(namespace, name, initial_data)' unless args.size == 3
 
   namespace = args[0]
@@ -27,7 +27,7 @@ Puppet::Parser::Functions.newfunction(:cache_data, type: :rvalue) do |args|
     YAML.load(File.read(cache))
   else
     FileUtils.mkdir_p(cache_dir)
-    File.open(cache, 'w', 0o600) do |c|
+    File.open(cache, 'w', 0600) do |c|
       c.write(YAML.dump(initial_data))
     end
     File.chown(File.stat(Puppet[:vardir]).uid, nil, cache)

@@ -10,10 +10,13 @@ mod 'vshn/gitlab'
 
 # Foreman
 mod 'adrien/alternatives'
-mod 'puppetlabs/postgresql'
-mod 'puppet/extlib'
-mod 'theforeman/tftp'
-mod 'theforeman/foreman'
+mod 'puppetlabs/postgresql', '4.8.0'
+mod 'puppet/extlib', '0.11.3'
+mod 'theforeman/foreman', '7.1.0'
+mod 'theforeman/foreman_proxy', '5.0.0'
+mod 'theforeman/tftp', '2.0.0'
+mod 'theforeman/dhcp', '3.0.0'
+mod 'theforeman/dns', '4.0.0'
 
 # Hiera
 mod 'hunner/hiera'
@@ -22,7 +25,7 @@ mod 'hunner/hiera'
 mod 'croddy/make'
 mod 'gentoo/portage'
 mod 'puppetlabs/ruby'
-mod 'puppetlabs/pe_gem'
+mod 'puppetlabs/puppetserver_gem', '0.2.0'
 mod 'puppetlabs/gcc'
 mod 'puppetlabs/vcsrepo'
 mod 'puppetlabs/git'
@@ -30,5 +33,5 @@ mod 'zack/r10k'
 
 # Puppet
 mod 'abrader/gms'
-mod 'theforeman/puppet',
-  :git => 'https://github.com/theforeman/puppet-puppet'
+mod 'theforeman/puppet', '7.0.1'
+

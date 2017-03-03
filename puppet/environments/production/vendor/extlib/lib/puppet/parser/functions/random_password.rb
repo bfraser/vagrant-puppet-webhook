@@ -16,7 +16,7 @@
 # limitations under the License.
 #
 
-Puppet::Parser::Functions.newfunction(:random_password, type: :rvalue, doc: <<-EOS
+Puppet::Parser::Functions.newfunction(:random_password, :type => :rvalue, :doc => <<-EOS
 Returns a string of arbitrary length that contains randomly selected characters.
 
 Prototype:
@@ -51,10 +51,8 @@ EOS
   #
   arguments = arguments.shift if arguments.first.is_a?(Array)
 
-  if arguments.empty?
-    raise Puppet::ParseError, 'random_password(): Wrong number of arguments ' \
-      "given (#{arguments.size} for 1)"
-  end
+  raise Puppet::ParseError, 'random_password(): Wrong number of arguments ' \
+    "given (#{arguments.size} for 1)" if arguments.empty?
 
   size = arguments.shift
 
@@ -65,7 +63,7 @@ EOS
   end
 
   # Numbers in Puppet are often string-encoded which is troublesome ...
-  size = size.to_i if size.is_a?(String) && size.match(%r{^\d+$})
+  size = size.to_i if size.is_a?(String) && size.match(/^\d+$/)
 
   if !size.is_a?(Numeric) || size < 0
     raise Puppet::ParseError, 'random_password(): Requires a non-negative ' \

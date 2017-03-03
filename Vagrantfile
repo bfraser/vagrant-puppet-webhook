@@ -12,6 +12,12 @@ components = %w(gitlab puppetmaster)
 Vagrant.configure(2) do |config|
   # Automatically manage host entries (requires 'vagrant-hostmanager' plugin)
   config.hostmanager.enabled = true
+  
+  # Ubuntu 16.04 no tty fix -- NEED TO CONDITIONALIZE
+  config.vm.provision "fix-no-tty", type: "shell" do |s|
+    s.privileged = false
+    s.inline = "sudo sed -i '/tty/!s/mesg n/tty -s \\&\\& mesg n/' /root/.profile"
+  end
 
   components.each do |component|
     next component unless settings[component]['enabled']
@@ -27,6 +33,8 @@ Vagrant.configure(2) do |config|
         node.vm.provider :virtualbox do |virtualbox, override|
           virtualbox.cpus = settings[component]['cpus']
           virtualbox.memory = settings[component]['memory']
+          node.vm.network settings[component]['network'], ip: settings[component]['ip']
+          node.hostmanager.aliases  = "#{hostname}.example.com #{hostname}"
 
           override.vm.box = settings[component]['image']
         end

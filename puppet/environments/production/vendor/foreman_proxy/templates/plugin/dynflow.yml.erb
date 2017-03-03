@@ -1,0 +1,4 @@
+---
+:enabled: <%= @module_enabled %>
+:database: <%= scope.lookupvar('::foreman_proxy::plugin::dynflow::database_path') %>
+:core_url: <%= scope.lookupvar('::foreman_proxy::plugin::dynflow::core_url') %>
